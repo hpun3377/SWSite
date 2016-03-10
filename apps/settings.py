@@ -50,13 +50,21 @@ MIDDLEWARE_CLASSES = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
+STATICFILES_DIRS = [
+    '../apps/templates/static/css',
+    '../apps/templates/static/img',
+    '../apps/templates/static/js',
+]
+
 ROOT_URLCONF = 'apps.urls'
 
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [os.path.join(BASE_DIR, 'templates')]
-        ,
+        'DIRS': [
+            os.path.join(BASE_DIR, 'templates'),
+            'templates/index.html'
+        ],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [

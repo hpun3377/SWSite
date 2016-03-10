@@ -22,9 +22,13 @@ Including another URLconf
 
 from django.conf.urls import patterns, include, url
 from SWSite.views import hello, current_datetime, hours_ahead
+from django.views.generic.base import TemplateView
+from django.conf import settings
+from django.conf.urls.static import static
 
 urlpatterns = patterns('',
-    url(r'^$', 'SWSite.views.home', name='home'),
+    # url(r'^$', 'SWSite.views.home', name='home'),
+    url(r'^$', TemplateView.as_view(template_name='index.html')),
     url(r'^hello/$', hello),
     url(r'^time/$', current_datetime),
     url(r'^time/plus/(\d{1,2})/$', hours_ahead),
