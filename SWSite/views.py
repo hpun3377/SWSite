@@ -1,11 +1,12 @@
 from django.shortcuts import render
 from django.http import Http404, HttpResponse
 from django.template import loader
+from django.shortcuts import render_to_response
 import datetime
 
 # Create your views here.
 def home(request):
-    return render(request, "index.html", {})
+    return render_to_response('index.html')
 
 def hello(request):
     return HttpResponse("Hello world")
